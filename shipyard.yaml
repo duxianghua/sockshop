@@ -4,6 +4,18 @@ metadata:
   name: "shipyard-sockshop"
 spec:
   stages:
+    - name: "single-stage"
+      sequences:
+        - name: "delivery"
+          tasks:
+            - name: "deployment"
+              properties:
+                deploymentstrategy: "direct"
+            - name: "test"
+              properties:
+                teststrategy: "functional"
+            - name: "evaluation"
+            - name: "release"
     - name: "dev"
       sequences:
         - name: "delivery"
@@ -16,7 +28,6 @@ spec:
                 teststrategy: "functional"
             - name: "evaluation"
             - name: "release"
-
     - name: "staging"
       sequences:
         - name: "delivery"
